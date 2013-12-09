@@ -4,7 +4,6 @@ module_rgb takes a shared library file, and outputs a 960x960 (by default) .rgb 
 
 You can create any shared library of your choosing so long as it contains the following function:
 
-  #include <sys/types.h>
   int rgbfunc(u_int16_t *rgb, long int xres, long int yres);
 
 module_rgb will write the contents of the rgb array to standard output, for use with display.

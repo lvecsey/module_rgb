@@ -1,0 +1,5 @@
+
+cd src
+make module_rgb
+cp module_rgb ~/bin
+

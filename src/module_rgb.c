@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 
   long int debug = getenv("DEBUG") != NULL;
 
-  long int use_mmap = getenv("USE_MAAP") != NULL;
+  long int use_mmap = getenv("USE_MMAP") != NULL;
 
   u_int16_t mono;
   long int xres = 960, yres = 960;
@@ -26,6 +26,8 @@ int main(int argc, char *argv[]) {
   int (*rgbfunc)(u_int16_t *rgb, long int xres, long int yres);
 
   struct timespec before, after;
+
+  use_mmap |= (argc>2);
 
   handle = dlopen(argc>1?argv[1]:NULL, RTLD_NOW);
   rgbfunc = dlsym(handle, "rgbfunc");

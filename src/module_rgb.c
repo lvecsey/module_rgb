@@ -17,8 +17,11 @@ int main(int argc, char *argv[]) {
 
   long int use_mmap = getenv("USE_MMAP") != NULL;
 
+  char *env_XRES = getenv("XRES");
+  char *env_YRES = getenv("YRES");
+
   u_int16_t mono;
-  long int xres = 960, yres = 960;
+  long int xres = env_XRES != NULL ? strtol(env_XRES,NULL,10) : 960, yres = env_YRES != NULL ? strtol(env_YRES,NULL,10) : 960;
   size_t img_sz = xres*yres*sizeof(u_int16_t)*3;
   u_int16_t *rgb;
 
